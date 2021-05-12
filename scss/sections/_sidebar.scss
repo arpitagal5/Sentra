@@ -1,0 +1,114 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    @include flex(space-between, center, column);
+    width: 0;
+    height: 100vh;
+    background-color: $secondary-color;
+    color: #ffffff;
+    overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
+
+    @include lg {
+        width: 300px;
+    }
+
+    &.open {
+        width: 260px;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .logo {
+        align-self: stretch;
+        padding: 20px;
+
+        h1 {
+            padding: 1px;
+            color: $primary-color;
+            font-size: 46px;
+            font-weight: 300;
+            text-align: center;
+            text-transform: uppercase;
+
+            span {
+                font-weight: bold;
+                color: #ffffff;
+            }
+        }
+    }
+    &-menu {
+        padding: 40px;
+        li {
+            margin: 10px 0;
+            padding: 10px 0;
+            width: 180px;
+            @include flex(flex-start, center);
+
+            a {
+                color: #ffffff;
+
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+            &:hover .dot {
+                background-color: #ffffff;
+            }
+            &:before {
+                display: inline-block;
+                content: "";
+                border-top: 1px solid #ffffff;
+                width: 0;
+                margin-right: 10px;
+                transform: translate(10px, 0);
+                transition: all 0.8s ease-in-out;
+            }
+            &.active::before {
+                width: 40px;
+            }
+        }
+    }
+    &-social-links {
+        margin-top: 35%;
+        padding: 20px;
+        padding-bottom: 0px;
+        text-align: center;
+        white-space: nowrap;
+
+        i {
+            margin: 0 10px;
+            transition: all 0.8s ease;
+            color: #eeeeee;
+
+            &:hover {
+                color: $primary-color;
+                transform: scale(1.5);
+                cursor: pointer;
+            }
+        }
+    }
+
+    &-contact {
+        margin: 0px auto 25px;
+        a {
+            color: #eeeeee;
+            font-weight: 300;
+            border: 1px solid #ffffff;
+            border-radius: 15px;
+            padding: 6px 10px;
+            transition: all 0.5s ease;
+
+            &:hover {
+                color: $primary-color;
+                border-color: $primary-color;
+                cursor: pointer;
+                transform: scale(1.5);
+            }
+        }
+    }
+}
